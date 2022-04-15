@@ -1,0 +1,17 @@
+{
+  "applications": ["myAppOauth"],
+  "changelogDate": "20220415161238",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "d",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "D",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass",
+  "skipClient": true
+}

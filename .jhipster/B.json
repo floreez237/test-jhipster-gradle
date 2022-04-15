@@ -1,0 +1,24 @@
+{
+  "applications": ["myAppOauth", "myAppOauth1"],
+  "changelogDate": "20220415161038",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "b",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "B",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "a",
+      "otherEntityRelationshipName": "b",
+      "relationshipName": "a",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass",
+  "skipClient": true
+}
