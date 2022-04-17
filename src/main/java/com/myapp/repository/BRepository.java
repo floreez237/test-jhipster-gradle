@@ -17,10 +17,10 @@ import reactor.core.publisher.Mono;
 public interface BRepository extends ReactiveCrudRepository<B, Long>, BRepositoryInternal {
     Flux<B> findAllBy(Pageable pageable);
 
-    @Query("SELECT * FROM b entity WHERE entity.aa_id = :id")
+    @Query("SELECT * FROM b entity WHERE entity.a_id = :id")
     Flux<B> findByA(Long id);
 
-    @Query("SELECT * FROM b entity WHERE entity.aa_id IS NULL")
+    @Query("SELECT * FROM b entity WHERE entity.a_id IS NULL")
     Flux<B> findAllWhereAIsNull();
 
     @Override

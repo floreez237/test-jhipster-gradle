@@ -12,7 +12,7 @@ public class BSqlHelper {
         List<Expression> columns = new ArrayList<>();
         columns.add(Column.aliased("id", table, columnPrefix + "_id"));
 
-        columns.add(Column.aliased("aa_id", table, columnPrefix + "_aa_id"));
+        columns.add(Column.aliased("a_id", table, columnPrefix + "_a_id"));
         return columns;
     }
 }

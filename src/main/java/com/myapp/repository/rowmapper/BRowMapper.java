@@ -25,7 +25,7 @@ public class BRowMapper implements BiFunction<Row, String, B> {
     public B apply(Row row, String prefix) {
         B entity = new B();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setAId(converter.fromRow(row, prefix + "_aa_id", Long.class));
+        entity.setAId(converter.fromRow(row, prefix + "_a_id", Long.class));
         return entity;
     }
 }

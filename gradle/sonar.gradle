@@ -1,14 +1,28 @@
 jacoco {
     toolVersion = "0.8.7"
 }
+def myExcludedClasses = ['com/myapp/*.class',
+                       'com/myapp/web/**',
+                       'com/myapp/config/*',
+                       'com/myapp/service/mapper/*',
+                       'com/myapp/service/dto/*',
+                       'com/myapp/aop/logging/*',
+                       'com/myapp/repository/**']
+
 
 jacocoTestReport {
-    executionData tasks.withType(Test)
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
     classDirectories.from = files(sourceSets.main.output.classesDirs)
     sourceDirectories.from = files(sourceSets.main.java.srcDirs)
 
     reports {
         xml.enabled = true
+    }
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                excludes: myExcludedClasses)
+        })
     }
 }
 

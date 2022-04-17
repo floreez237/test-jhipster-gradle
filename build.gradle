@@ -84,6 +84,16 @@ springBoot {
     mainClass = "com.myapp.MyAppOauthApp"
 }
 
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = true
+    }
+    dependsOn(test)
+
+}
+
+
 test {
     useJUnitPlatform()
     exclude "**/*IT*", "**/*IntTest*"
@@ -93,14 +103,15 @@ test {
     jvmArgs += '-Djava.security.egd=file:/dev/./urandom -Xmx256m'
     // uncomment if the tests reports are not generated
     // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
-    // ignoreFailures true
-    reports.html.enabled = false
+//     ignoreFailures true
+    reports.html.enabled = true
 
     if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_13)) {
         jvmArgs += [
             "-XX:+AllowRedefinitionToAddDeleteMethods"
         ]
     }
+    finalizedBy(jacocoTestReport)
 }
 
 modernizer {
@@ -130,6 +141,9 @@ task integrationTest(type: Test) {
         jvmArgs += [
             "-XX:+AllowRedefinitionToAddDeleteMethods"
         ]
+    }
+    jacoco{
+        enabled=false
     }
 }
 
@@ -256,6 +270,8 @@ dependencies {
     implementation "io.r2dbc:r2dbc-h2"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+
+    testImplementation 'io.projectreactor:reactor-test:3.4.17'
 }
 
 if (project.hasProperty("gae")) {

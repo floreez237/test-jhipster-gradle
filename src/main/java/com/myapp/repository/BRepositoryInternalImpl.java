@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.function.BiFunction;
+import javax.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.convert.R2dbcConverter;
 import org.springframework.data.r2dbc.core.R2dbcEntityOperations;
@@ -84,9 +85,8 @@ class BRepositoryInternalImpl extends SimpleR2dbcRepository<B, Long> implements 
             .select(columns)
             .from(entityTable)
             .leftOuterJoin(aTable)
-            .on(Column.create("aa_id", entityTable))
+            .on(Column.create("a_id", entityTable))
             .equals(Column.create("id", aTable));
-
         String select = entityManager.createSelect(selectFrom, B.class, pageable, criteria);
         return db.sql(select).map(this::process);
     }

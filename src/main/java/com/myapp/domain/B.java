@@ -23,7 +23,7 @@ public class B implements Serializable {
     @JsonIgnoreProperties(value = { "bs" }, allowSetters = true)
     private A a;
 
-    @Column("aa_id")
+    @Column("a_id")
     private Long aId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

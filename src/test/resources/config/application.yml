@@ -38,6 +38,7 @@ spring:
   liquibase:
     contexts: test
     url: jdbc:h2:mem:myappoauth;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    change-log: classpath:config/liquibase/master.xml
   mail:
     host: localhost
   main:
