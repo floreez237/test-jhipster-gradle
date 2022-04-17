@@ -67,7 +67,7 @@ object Build : BuildType({
                     import requests
                     import time
                     
-                    time.sleep(10)
+                    time.sleep(5)
                     response=requests.get(
                       '%sonar.host%/api/qualitygates/project_status?projectKey=%sonar.project-key%',
                       auth=('%sonar.login%','')
