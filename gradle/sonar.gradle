@@ -2,12 +2,14 @@ jacoco {
     toolVersion = "0.8.7"
 }
 def myExcludedClasses = ['com/myapp/*.class',
-                       'com/myapp/web/**',
-                       'com/myapp/config/*',
-                       'com/myapp/service/mapper/*',
-                       'com/myapp/service/dto/*',
-                       'com/myapp/aop/logging/*',
-                       'com/myapp/repository/**']
+                         'com/myapp/web/**',
+                         'com/myapp/config/*',
+                         'com/myapp/domain/*',
+                         'com/myapp/service/mapper/*',
+                         'com/myapp/service/dto/*',
+                         'com/myapp/aop/logging/*',
+                         'com/myapp/security/oauth2/OAuthIdpTokenResponseDTO.*',
+                         'com/myapp/repository/**']
 
 
 jacocoTestReport {
@@ -38,3 +40,5 @@ file("sonar-project.properties").withReader {
         }
     }
 }
+
+
